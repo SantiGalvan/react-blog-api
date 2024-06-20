@@ -9,7 +9,7 @@ const Card = ({ title, content, category, tags, user }) => {
             </div>
             <div className={`card-body ${cardStyle.body}`}>
                 <p>{content}</p>
-                <p>{user.name}</p>
+                <p>{user?.name}</p>
                 <p>
                     <strong>Tags: </strong>
                     {tags.map(tag => (
