@@ -1,18 +1,15 @@
 import cardStyle from './Card.module.scss';
+import { FaSearch, FaTrashAlt } from "react-icons/fa";
 
 const Card = ({ title, content, category, tags, user }) => {
     return (
-        <div className="card">
-            <div className={`card-header text-center ${cardStyle.title}`} style={{ backgroundColor: category.color }}>
+        <div className="card text-center">
+            <div className={`card-header ${cardStyle.title}`} style={{ backgroundColor: category.color }}>
                 <h2>{title}</h2>
             </div>
             <div className={`card-body ${cardStyle.body}`}>
-                <p className="text-center">{content}</p>
-                <p className="text-center">{user.name}</p>
-                <p>
-                    <strong>Categoria: </strong>
-                    <span className="badge" style={{ backgroundColor: category.color }}>{category.label}</span>
-                </p>
+                <p>{content}</p>
+                <p>{user.name}</p>
                 <p>
                     <strong>Tags: </strong>
                     {tags.map(tag => (
@@ -25,7 +22,10 @@ const Card = ({ title, content, category, tags, user }) => {
                 </p>
 
             </div>
-            <div className="card-footer"></div>
+            <div className="card-footer d-flex justify-content-center gap-3">
+                <button className='btn btn-primary d-flex align-items-center gap-1'><FaSearch />Vedi</button>
+                <button className='btn btn-danger d-flex align-items-center gap-1'><FaTrashAlt />Cancella</button>
+            </div>
         </div >
     )
 }
