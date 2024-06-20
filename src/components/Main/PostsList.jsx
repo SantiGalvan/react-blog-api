@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Card from "../Card/Card";
 const apiUrl = import.meta.env.VITE_BASE_API_URL;
 
 const PostsList = () => {
@@ -18,14 +19,20 @@ const PostsList = () => {
 
 
     return (
-        <section>
-            <ul>
-                {posts?.map(post => (
-                    <li
-                        key={post.id}
-                    >{post.title}</li>
+        <section className="container">
+            <div className="row g-4">
+                {posts?.map(({ id, title, content, category, tags, user }) => (
+                    <div key={id} className="col-4">
+                        <Card
+                            title={title}
+                            content={content}
+                            category={category}
+                            tags={tags}
+                            user={user}
+                        />
+                    </div>
                 ))}
-            </ul>
+            </div>
         </section>
     )
 }
