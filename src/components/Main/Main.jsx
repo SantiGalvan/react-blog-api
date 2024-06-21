@@ -24,7 +24,7 @@ const Main = () => {
         setCategories(apiCategories);
     }
 
-    useState(() => {
+    useEffect(() => {
         fetchTags();
         fetchCategories();
     }, [])
